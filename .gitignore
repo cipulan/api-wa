@@ -1,0 +1,16 @@
+# waha
+sessions/
+media/
+.data/
+.env
+.env.local
+
+# dependencies
+bin/
+.hermit
+
+# Temp
+gitignore
+
+# System Files
+.DS_Store

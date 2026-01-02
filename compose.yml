@@ -1,0 +1,32 @@
+---
+services:
+  waha:
+    # WAHA Core
+    image: devlikeapro/waha:latest-2025.12.3
+    container_name: waha
+    restart: always
+    network_mode: host
+    volumes:
+      # Store sessions in the .sessions folder
+      - './sessions:/app/.sessions'
+      # Save media files
+      - './media:/app/.media'
+    # Add "dns" if you have a problem with resolving "web.whatsapp.com"
+    dns:
+      - 1.1.1.1
+      - 8.8.8.8
+    deploy:
+      resources:
+        limits:
+          cpus: 1.00
+          memory: 1G
+        reservations:
+          cpus: 0.50
+          memory: 256M
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '10m'
+        max-file: '3'
+    env_file:
+      - .env
