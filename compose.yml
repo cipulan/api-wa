@@ -6,7 +6,10 @@ services:
     image: devlikeapro/waha:latest-2025.12.3
     container_name: waha
     restart: always
-    network_mode: host
+    networks:
+      - waha-network
+    ports:
+      - '127.0.0.1:3000:3000'
     volumes:
       # Store sessions in the .sessions folder
       - './sessions:/app/.sessions'
@@ -31,3 +34,8 @@ services:
         max-file: '3'
     env_file:
       - .env
+
+networks:
+  waha-network:
+    driver: bridge
+
