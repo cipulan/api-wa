@@ -9,12 +9,12 @@ services:
     networks:
       - waha-network
     ports:
-      - '127.0.0.1:3000:3000'
+      - '127.0.0.1:3000:3000/tcp'
     volumes:
       # Store sessions in the .sessions folder
-      - './sessions:/app/.sessions'
+      - 'waha_sessions:/app/.sessions'
       # Save media files
-      - './media:/app/.media'
+      - 'waha_media:/app/.media'
     # Add "dns" if you have a problem with resolving "web.whatsapp.com"
     dns:
       - 1.1.1.1
@@ -39,3 +39,8 @@ networks:
   waha-network:
     driver: bridge
 
+volumes:
+  waha_sessions:
+    driver: local
+  waha_media:
+    driver: local
