@@ -3,7 +3,7 @@ name: api-wa
 services:
   waha:
     # WAHA Core
-    image: devlikeapro/waha:latest-2026.6.2
+    image: devlikeapro/waha:latest-2026.7.1
     container_name: waha
     restart: always
     networks:
